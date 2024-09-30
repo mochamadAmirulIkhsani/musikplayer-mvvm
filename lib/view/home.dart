@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:musikplayer_mvvm/assets/app_images.dart';
 import 'package:musikplayer_mvvm/assets/app_vector.dart';
 import 'package:musikplayer_mvvm/view/widgets/app_bar.dart';
+import 'package:musikplayer_mvvm/view/widgets/bottom_navbar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -37,10 +38,11 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _homeTopCard(),
-            _tabs()
+            _tabs(),
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 
@@ -67,7 +69,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                   AppImages.homeArtist
                 ),
               ),
-            )
+            ),
+            
           ],
         ),
       ),
@@ -77,23 +80,40 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   Widget _tabs() {
     return TabBar(
       controller: _tabController,
+      isScrollable: false,
       labelColor: context.isDarkMode ? Colors.white : Colors.black,
       padding: EdgeInsets.symmetric(
         vertical: 40,
-        horizontal: 16
+        horizontal: 12
       ),
-      tabs: [
+      tabs: const [
       Text(
-        'News'
-      ),
-      Text(
-        'Videos'
-      ),
-      Text(
-        'Artist'
+        'News',
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 16
+        ),
       ),
       Text(
-        'Podcast'
+        'Videos',
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 16
+        ),
+      ),
+      Text(
+        'Artist',
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 16
+        ),
+      ),
+      Text(
+        'Podcast',
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 16
+        ),
       )
     ],
     );
